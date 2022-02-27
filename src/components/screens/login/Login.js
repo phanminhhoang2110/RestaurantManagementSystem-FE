@@ -1,25 +1,28 @@
 import React from "react";
 import logo from "../../../assets/img/HuongKitchen.png";
-import { Input, Button } from "antd";
+import { Button} from "antd";
+import CoreInput from '../../core-component/CoreInput.js'
 import './Login.css'
 
 class Login extends React.Component{
 
+    onLoginClick = (event) => {
+        
+    }
+
     render(){
-        return <div className="login">
+        return <div className="login-container">
             <img className="logo" src={logo}></img>
             <h1>Đăng nhập</h1>
-            <div>
-                <p>Tên đăng nhập</p>
-                <Input></Input>
+
+            <CoreInput label='Tên đăng nhập'></CoreInput>
+            <CoreInput label='Mật khẩu' password></CoreInput>
+
+            <div className="login-btn">
+                <Button type="primary" size="large" onClick={this.onLoginClick}>
+                    Đăng nhập
+                </Button>
             </div>
-            <div>
-                <p>Mật khẩu</p>
-                <Input></Input>
-            </div>
-            <Button type="primary">
-                Đăng nhập
-            </Button>
         </div>
     }
 }

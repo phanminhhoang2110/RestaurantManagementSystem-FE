@@ -1,9 +1,15 @@
 .logo {
-    width: 500px;
-    height: 500px;
+    width: 400px;
+    height: 400px;
     border-radius: 50%;
+    margin-bottom: 50px;
 }
 
-.login{
+.login-container{
     height: 100vh;
+    background-color: #EDEDFB;
+}
+
+.login-btn{
+    margin-top: 30px;
 }
