@@ -1,11 +1,11 @@
 import logo from './assets/img/HuongKitchen.png';
 import './App.css';
-import SignIn from './components/screens/SignIn';
+import Login from './components/screens/login/Login'
 
 function App() {
   return (
     <div className="App">
-      <SignIn></SignIn>
+      <Login></Login>
     </div>
   );
 }
