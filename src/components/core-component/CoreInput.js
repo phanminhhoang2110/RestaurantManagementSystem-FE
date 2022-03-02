@@ -7,19 +7,18 @@ export default class CoreInput extends Component{
     constructor(props){
         super(props);
         this.state = {
-            inputValue: ""
+            valueOfInput: ""
         }
     }
-    getValueOfInput = (event) => {
-        console.log(event.target.value)
-        this.setState({inputValue: event.target.value})
+    setValueOfInput = (event) => {
+        this.setState({valueOfInput: event.target.value});
+        if(this.props.getValueOfInput){
+            this.props.getValueOfInput(event.target.value);
+        }
     }
 
     render(){
-        const props = this.props;
-        const label = props.label;
-        const defaultValue = props.defaultValue;
-        const password = props.password;
+        const {label, defaultValue, password} = this.props;
         return (
             <div>
                 <Row justify="center">
@@ -33,16 +32,15 @@ export default class CoreInput extends Component{
                                 defaultValue={defaultValue ? defaultValue : ''}
                                 iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
                                 style={{width:'40%'}}
-                                onPressEnter = {this.getValueOfInput}
+                                onChange = {this.setValueOfInput}
                             />
                             :
                             <Input 
                                 defaultValue={defaultValue ? defaultValue : ''}
                                 style={{width:'40%'}}
-                                onPressEnter = {this.getValueOfInput}
+                                onChange = {this.setValueOfInput}
                             />
                         }
-                        
                     </Col>
                 </Row>
             </div>
