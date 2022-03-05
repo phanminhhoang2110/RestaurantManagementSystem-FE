@@ -1,8 +1,8 @@
-// import { configureStore } from '@reduxjs/toolkit'
-// import rootReducer from './reducers/RootReducer'
+import { configureStore } from '@reduxjs/toolkit'
+import profileReducer from './reducers/profile-reducer/profileReducer'
 
-// export default configureStore({
-//   reducer: {
-//     root: rootReducer
-//   }
-// })
+export default configureStore({
+  reducer: {
+    profile: profileReducer
+  }
+})
