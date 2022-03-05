@@ -3,6 +3,7 @@ import logo from "../../../assets/img/HuongKitchen.png";
 import { Button} from "antd";
 import CoreInput from '../../core-component/CoreInput.js'
 import './Login.css'
+import axios from "axios";
 
 class Login extends React.Component{
 
@@ -28,6 +29,16 @@ class Login extends React.Component{
 
     onLoginClick = (event) => {
         const {username, password} = this.state;
+        console.log(username);
+        console.log(password);
+        axios.post('http://127.0.0.1:4000/api/auth/login?', {
+            username: username,
+            password: password
+        }).then(function(response){
+            console.log(response);
+        }).catch(function(error){
+            console.log(error);
+        });
     }
 
 
