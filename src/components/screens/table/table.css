@@ -1,17 +1,22 @@
-.card {
+.table-item {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
-  width: 10%;
+  width: 100%;
 }
 
-.card:hover {
+.table-item:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
-.container {
+.table-label {
   padding: 2px 16px;
 }
 
-img {
+.table-img {
   height: 100px;
+  margin: 10  px;
+}
+
+.table-container{
+  margin-top: 20px;
 }
