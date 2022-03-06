@@ -4,6 +4,7 @@ import { Button} from "antd";
 import CoreInput from '../../core-component/CoreInput.js'
 import './Login.css'
 import axios from "axios";
+import { API_HOST } from "../../../configs/config";
 
 class Login extends React.Component{
 
@@ -31,7 +32,7 @@ class Login extends React.Component{
         const {username, password} = this.state;
         console.log(username);
         console.log(password);
-        axios.post('http://127.0.0.1:4000/api/auth/login?', {
+        axios.post(API_HOST + '/api/auth/login?', {
             username: username,
             password: password
         }).then(function(response){
