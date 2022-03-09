@@ -4,7 +4,6 @@ import { Button} from "antd";
 import CoreInput from '../../core-component/CoreInput.js'
 import './Login.css'
 import axios from "axios";
-import { API_HOST } from "../../../configs/config";
 
 class Login extends React.Component{
 
@@ -30,13 +29,12 @@ class Login extends React.Component{
 
     onLoginClick = (event) => {
         const {username, password} = this.state;
-        console.log(username);
-        console.log(password);
-        axios.post(API_HOST + '/api/auth/login?', {
+        axios.post(window.API_HOST + 'api/auth/login?', {
             username: username,
             password: password
         }).then(function(response){
-            console.log(response.data);
+            console.log(response)
+           localStorage.setItem('bearer_token', response.data.access_token)
         }).catch(function(error){
             console.log(error);
         });

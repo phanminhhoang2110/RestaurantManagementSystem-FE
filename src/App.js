@@ -7,7 +7,7 @@ import Tables from './components/screens/table';
 function App() {
   return (
     <div className="App">
-      <Tables></Tables>
+     <Tables></Tables>
     </div>
   );
 }

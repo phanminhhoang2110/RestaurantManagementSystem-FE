@@ -8,7 +8,7 @@ const Tables = () => {
     const [tables,setTables] = useState([]);
 
     useEffect(()=>{
-        axios.get('http://127.0.0.1:8000/api/table/get-all')
+        axios.get(window.API_HOST + 'api/table/get-all')
             .then(function(response){
                 const {data} = response.data;
                 setTables(data);
