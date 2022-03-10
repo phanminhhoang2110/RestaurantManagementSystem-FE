@@ -1,3 +1,3 @@
 # Bếp Hương Project
 
-![](/src/assets/img/HuongKitchen.png) (&lt;img /&gt;)
+![](/src/assets/img/HuongKitchen.png)
