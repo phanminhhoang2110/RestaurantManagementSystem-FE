@@ -1,5 +1,4 @@
 import React from "react";
-import iconNav from '../../../assets/img/food.svg'
 import './index.css';
 
 
