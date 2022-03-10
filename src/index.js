@@ -4,15 +4,18 @@ import './index.css';
 import "antd/dist/antd.css";
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import store from './redux/store'
-import { Provider } from 'react-redux'
+import store from './redux/store';
+import { Provider } from 'react-redux';
+import {BrowserRouter as Router} from 'react-router-dom';
 
 ReactDOM.render(
-  <Provider store={store}>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  </Provider>,
+  <Router>
+    <Provider store={store}>
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    </Provider>
+  </Router>,
   document.getElementById('root')
 );
 
