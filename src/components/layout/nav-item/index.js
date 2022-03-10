@@ -4,8 +4,13 @@ import './index.css';
 
 
 const NavItem = ({icon, label}) => {
+
+    const onClickNavItem = () => {
+        console.log(label)
+    }
+
     return (
-        <div className='nav-item-container'>
+        <div className='nav-item-container' onClick={onClickNavItem}>
             <img
                 alt={label}
                 className="nav-item-img" 
