@@ -3,9 +3,11 @@
 }
 
 .layout-component-nav{
-    width: 15%;
-    height: 100vh;
-    background-color: red
+    border-radius: 10px;
+    width: 20%;
+    height: 97vh;
+    background-color: #3E3E45;
+    margin: 10px;
 }
 
 .layout-component-main{
