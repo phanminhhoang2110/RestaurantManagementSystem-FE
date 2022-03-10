@@ -4,10 +4,12 @@ import Tables from "../screens/table";
 
 const LayoutComponent = () => {
     return (
-        <div className="layout-component-container">
-            <div className="layout-component-nav">Nav</div>
-            <div className="layout-component-main">
-                <Tables></Tables>    
+        <div>
+            <div className="layout-component-container">
+                <div className="layout-component-nav"></div>
+                <div className="layout-component-main">
+                    <Tables></Tables>    
+                </div>
             </div>
         </div>
     );
