@@ -43,7 +43,7 @@ class Login extends React.Component{
                 localStorage.setItem('bearer_token', response.data.access_token)
                 history.push('/dashboard')
             }else{
-                toast("Mật khẩu hoặc tài khoản chưa đúng", {
+                toast("Mật khẩu hoặc tài khoản chưa đúng!", {
                     type: 'warning'
                 })
             }
