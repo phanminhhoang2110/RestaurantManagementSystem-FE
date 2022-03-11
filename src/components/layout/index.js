@@ -20,6 +20,7 @@ const LayoutComponent = () => {
             }
         }).catch((error)=>{
             toast('Hệ thống gặp vấn đề vui lòng gọi hỗ trợ viên');
+            history.push('/');
         })
     })
 
