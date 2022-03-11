@@ -4,6 +4,10 @@ import { Button} from "antd";
 import CoreInput from '../../core-component/CoreInput.js'
 import './Login.css'
 import axios from "axios";
+import {withRouter} from 'react-router-dom'
+import { toast, ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
 
 class Login extends React.Component{
 
@@ -27,35 +31,45 @@ class Login extends React.Component{
         })
     }
 
-    onLoginClick = (event) => {
+    onLoginClick = (history) => {
         const {username, password} = this.state;
-        axios.post(window.API_HOST + 'api/auth/login?', {
+        console.log(username)
+        axios.post(window.API_HOST + '/api/auth/login?', {
             username: username,
             password: password
         }).then(function(response){
             console.log(response)
-           localStorage.setItem('bearer_token', response.data.access_token)
+            if(response.data.status == 200){
+                localStorage.setItem('bearer_token', response.data.access_token)
+                history.push('/dashboard')
+            }else{
+                toast("Mật khẩu hoặc tài khoản chưa đúng", {
+                    type: 'warning'
+                })
+            }
         }).catch(function(error){
-            console.log(error);
+            history.push('/');
         });
     }
 
 
     render(){
+        const {history} = this.props;
         return <div className="login-container">
             <img className="logo" src={logo}></img>
             <h1>Đăng nhập</h1>
 
-            <CoreInput label='Tên đăng nhập' getValueOfInput={this.getValueOfInput}></CoreInput>
-            <CoreInput label='Mật khẩu' password getValueOfInput={this.getValueOfInputPassword}></CoreInput>
+            <CoreInput label='Tên đăng nhập' getValueOfInput={this.getValueOfInput} defaultValue='hoang' ></CoreInput>
+            <CoreInput label='Mật khẩu' password getValueOfInput={this.getValueOfInputPassword} defaultValue='12345' ></CoreInput>
 
             <div className="login-btn">
-                <Button type="primary" size="large" onClick={this.onLoginClick}>
+                <Button type="primary" size="large" onClick={() => this.onLoginClick(history)}>
                     Đăng nhập
                 </Button>
             </div>
+            <ToastContainer/>
         </div>
     }
 }
 
-export default Login;
+export default withRouter(Login);

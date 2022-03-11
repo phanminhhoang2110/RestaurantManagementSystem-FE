@@ -27,8 +27,8 @@ const items = [
 const NavContainer = () => {
     return (
         <div>
-            {items.map((item)=>{
-                return <NavItem icon={item.icon} label={item.label}/>
+            {items.map((item, index)=>{
+                return <NavItem key={index} icon={item.icon} label={item.label}/>
             })}
         </div>
     );
