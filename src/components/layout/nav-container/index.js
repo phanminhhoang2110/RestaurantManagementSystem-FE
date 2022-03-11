@@ -7,12 +7,12 @@ import iconNav3 from '../../../assets/icons/order-history.svg'
 
 const items = [
     {
-        'label': 'Đồ ăn',
-        'icon': iconNav1,
-    },
-    {
         'label': 'Order',
         'icon': iconNav4,
+    },
+    {
+        'label': 'Đồ ăn',
+        'icon': iconNav1,
     },
     {
         'label': 'Doanh thu',
