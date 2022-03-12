@@ -3,6 +3,8 @@ import './index.css'
 import Tables from "../screens/table";
 import Food from "../screens/food/index";
 import NavContainer from "./nav-container";
+import OrderHistory from "../screens/order-history/index"
+import Revenue from "../screens/revernue/index"
 import axios from 'axios';
 import { toast, ToastContainer } from "react-toastify";
 import { Switch, Route, useRouteMatch, useHistory } from "react-router-dom";
@@ -44,6 +46,12 @@ const LayoutComponent = () => {
                         </Route>
                         <Route path={`${url}` + '/food'}>
                             <Food></Food>
+                        </Route>
+                        <Route path={`${url}` + '/order-history'}>
+                            <OrderHistory></OrderHistory>
+                        </Route>
+                        <Route path={`${url}` + '/revenue'}>
+                            <Revenue></Revenue>
                         </Route>
                     </Switch>
                 </div>
