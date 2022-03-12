@@ -22,20 +22,22 @@ class Login extends React.Component{
     componentDidMount(){
         const {history} = this.props;
         const token = localStorage.getItem('bearer_token');
-        axios.post(
-            window.API_HOST + '/api/auth/me',
-            '',
-            {headers: { Authorization: `Bearer ${token}` }}
-        ).then((response)=> {
-            if(response.data.status !== 200 || !response.data.data._id){
+        if(token){
+            axios.post(
+                window.API_HOST + '/api/auth/me',
+                '',
+                {headers: { Authorization: `Bearer ${token}` }}
+            ).then((response)=> {
+                if(response.data.status !== 200 || !response.data.data._id){
+                    history.push('/');
+                }else{
+                    history.push('/dashboard')
+                }
+            }).catch((error)=>{
+                toast('Hệ thống gặp vấn đề vui lòng gọi hỗ trợ viên');
                 history.push('/');
-            }else{
-                history.push('/dashboard')
-            }
-        }).catch((error)=>{
-            toast('Hệ thống gặp vấn đề vui lòng gọi hỗ trợ viên');
-            history.push('/');
-        })
+            })
+        }
     }
 
     getValueOfInput = (value) => {

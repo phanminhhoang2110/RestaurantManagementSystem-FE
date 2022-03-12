@@ -1,15 +1,18 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import './index.css';
 
 
-const NavItem = ({icon, label}) => {
+const NavItem = ({icon, label, link}) => {
 
-    const onClickNavItem = () => {
-        console.log(label)
+    const history = useHistory();
+
+    const onClickNavItem = (link) => {
+        history.push(link);
     }
 
     return (
-        <div className='nav-item-container' onClick={onClickNavItem}>
+        <div className='nav-item-container' onClick={() => onClickNavItem(link)}>
             <img
                 alt={label}
                 className="nav-item-img" 

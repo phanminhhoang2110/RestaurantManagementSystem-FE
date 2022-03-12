@@ -14,6 +14,9 @@ function App() {
         <Route path='/dashboard'>
           <LayoutComponent/>
         </Route>
+        <Route path='/order'>
+          <Login/>
+        </Route>
       </Switch>
     </div>
   );
