@@ -5,12 +5,11 @@ import Food from "../screens/food/index";
 import NavContainer from "./nav-container";
 import axios from 'axios';
 import { toast, ToastContainer } from "react-toastify";
-import { useHistory } from "react-router-dom";
-import { Switch, Route } from "react-router-dom";
-import { useRouteMatch } from "react-router-dom";
+import { Switch, Route, useRouteMatch, useHistory } from "react-router-dom";
 
 const LayoutComponent = () => {
     const history = useHistory();
+    const {url, path} = useRouteMatch();
 
     useEffect(() => {
         const token = localStorage.getItem('bearer_token');
@@ -37,10 +36,13 @@ const LayoutComponent = () => {
                 </div>
                 <div className="layout-component-main">
                     <Switch>
-                        <Route path='/dashboard'>
+                        <Route path={'/dashboard'} exact>
                             <Tables></Tables>
                         </Route>
-                        <Route path='/food'>
+                        <Route path={`${url}` + '/order'}>
+                            <Tables></Tables>
+                        </Route>
+                        <Route path={`${url}` + '/food'}>
                             <Food></Food>
                         </Route>
                     </Switch>
