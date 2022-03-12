@@ -1,4 +1,5 @@
 import React from "react";
+import { useRouteMatch } from "react-router-dom";
 import NavItem from "../nav-item";
 import iconNav1 from '../../../assets/icons/food.svg'
 import iconNav2 from '../../../assets/icons/revenue.svg'
@@ -29,10 +30,13 @@ const items = [
 ]
 
 const NavContainer = () => {
+
+    const {url, path} = useRouteMatch();
+
     return (
         <div>
             {items.map((item, index)=>{
-                return <NavItem key={index} icon={item.icon} label={item.label} link={item.link}/>
+                return <NavItem key={index} icon={item.icon} label={item.label} link={`${url}` + item.link}/>
             })}
         </div>
     );
