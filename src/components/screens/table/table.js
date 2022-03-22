@@ -1,13 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import './table.css';
 import table from  '../../../assets/img/table.png';
 import { Col } from "antd";
+import OrderModal from '../order/order-modal';
 
 const Table = (props) => {
     const {label, id} = props;
 
+    const [visible, setVisible] = useState(false);
+
     const onClickToTable = (id) => {
-        console.log(id);
+        setVisible(true)
+    }
+
+    const onClickOrder = () => {
+
+    }
+
+    const onClickCancel = () => {
+        setVisible(false)
     }
 
     return (
@@ -20,6 +31,7 @@ const Table = (props) => {
                     </div>
                 </div>
             </div>
+            <OrderModal visible={visible} onClickCancel={onClickCancel} />
         </Col>
     );
 }
